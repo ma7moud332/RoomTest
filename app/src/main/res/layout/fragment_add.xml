@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24sp">
+
+
+        <EditText
+            android:id="@+id/addFirstName_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="text"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="100dp" />
+
+        <EditText
+            android:id="@+id/addLastName_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Last Name"
+            app:layout_constraintTop_toBottomOf="@+id/addFirstName_et"
+            tools:layout_editor_absoluteX="100dp" />
+
+        <EditText
+            android:id="@+id/addAge_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Age"
+            app:layout_constraintTop_toBottomOf="@+id/addLastName_et"
+            tools:layout_editor_absoluteX="100dp" />
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Add"
+            app:layout_constraintTop_toBottomOf="@+id/addAge_et"
+            tools:layout_editor_absoluteX="135dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
