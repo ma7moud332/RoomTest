@@ -1,5 +1,6 @@
 package com.example.room.fragments.list
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,11 +9,15 @@ import com.example.room.databinding.CustomRawBinding
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     private var userList = emptyList<User>()
+
     class MyViewHolder(private val binding: CustomRawBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
             binding.user = user
-            binding.executePendingBindings()
+            binding.idTx.text= user.id.toString()
+            binding.firstNameTxt.text=user.firstName
+            binding.lastNameTxt.text=user.lastName
+            binding.ageTxt.text=user.age.toString()
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -31,4 +36,5 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         userList = user
         notifyDataSetChanged()
     }
+
 }

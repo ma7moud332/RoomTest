@@ -1,6 +1,7 @@
 package com.example.room.fragments.list
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
     private lateinit var mUserViewModel: UserViewModel
+    private lateinit var adapter: ListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,15 +27,15 @@ class ListFragment : Fragment() {
     ): View {
         binding = FragmentListBinding.inflate(layoutInflater)
 
-        val adapter = ListAdapter()
+        adapter = ListAdapter()
         val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
-        mUserViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
-            adapter.setData(user)
-        })
+        mUserViewModel.readData.observe(viewLifecycleOwner){
+            adapter.setData(it)
+        }
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
